@@ -1,5 +1,5 @@
 <template>
-    <div class="card">
+    <div class="bg-blue-400 border-red-700">
         <h1>{{ info.id }}- {{ info.username }}</h1>
     </div>
 </template>
@@ -11,8 +11,4 @@
     }
 </script>
 <style>
-.card{
-    border: 2px solid red;
-    margin: 10px;
-}
 </style>

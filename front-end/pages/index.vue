@@ -1,6 +1,5 @@
 <template>
-    <p>Hello world</p>
-    <p>{{ users[0] }}</p>
+    <p class="bg-blue-400 font-extrabold">Hello world</p>
     <User v-for="user in users" :info="user"/>
 </template>
 <script>
