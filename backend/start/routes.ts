@@ -11,5 +11,6 @@ import router from '@adonisjs/core/services/router'
 
 router.on('/').render('pages/home')
 
-const UsersController = () => import('#controllers/users_controller')
-router.get('users', [UsersController, 'index'])
+const Todo = () => import('../app/controllers/todos_controller.js')
+router.get('todo', [Todo, 'index'])
+router.get('todo/:id', [Todo, 'show'])

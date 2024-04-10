@@ -1,20 +1,23 @@
 <template>
     <Header/>
+    <div class="flex flex-col items-center w-full gap-2">
+        <Todo v-for="todo in todos" :todo="todo"/>
+    </div>
 </template>
 <script>
 export default {
   data () {
     return {
-      users: []
+      todos: []
     }
   },
   mounted () {
-    fetch('http://localhost:3333/users')
+    fetch('http://localhost:3333/todo')
       .then((response) => {
         return response.json();
       })
       .then((data) => {
-        this.users = data;
+        this.todos = data;
         console.log(data)
       })
       .catch((error) => {
@@ -24,3 +27,6 @@ export default {
   }
 };
 </script>
+<style>
+
+</style>
