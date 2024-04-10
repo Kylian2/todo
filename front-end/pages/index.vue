@@ -1,6 +1,5 @@
 <template>
-    <p class="bg-blue-400 font-extrabold">Hello world</p>
-    <User v-for="user in users" :info="user"/>
+    <Header/>
 </template>
 <script>
 export default {
