@@ -15,5 +15,5 @@ const Todo = () => import('../app/controllers/todos_controller.js')
 router.get('/todo/', [Todo, 'index'])
 router.get('todo/:id', [Todo, 'show'])
 router.post('todo', [Todo, 'store'])
-router.patch('todo/:id', [Todo, 'update'])
+router.post('todo/edit/:id', [Todo, 'update']) //probleme avec patch
 router.delete('todo/:id', [Todo, 'destroy'])
