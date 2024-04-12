@@ -16,4 +16,4 @@ router.get('/todo/', [Todo, 'index'])
 router.get('todo/:id', [Todo, 'show'])
 router.post('todo', [Todo, 'store'])
 router.post('todo/edit/:id', [Todo, 'update']) //probleme avec patch
-router.delete('todo/:id', [Todo, 'destroy'])
+router.post('todo/delete/:id', [Todo, 'destroy'])

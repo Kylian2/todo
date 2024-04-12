@@ -10,14 +10,15 @@ export default class TodosController {
 
   async create({}: HttpContext) {}
 
-  async store({ request }: HttpContext) {
+  async store({ request, response }: HttpContext) {
     const todo = new Todo()
 
     todo.merge(request.body())
     console.log(todo)
 
     await todo.save()
-    return todo
+
+    return response.redirect('http://localhost:3000/')
   }
 
   async show({ params }: HttpContext) {
@@ -27,7 +28,7 @@ export default class TodosController {
 
   async edit({}: HttpContext) {}
 
-  async update({ params: { id }, request }: HttpContext) {
+  async update({ params: { id }, request, response }: HttpContext) {
     const todo = await Todo.findOrFail(id)
     const data = request.body()
     const date = DateTime.local()
@@ -36,10 +37,10 @@ export default class TodosController {
       updatedAt: date,
     })
     todo.save()
-    return todo
+    return response.redirect(`http://localhost:3000/todo/${id}`)
   }
 
-  async destroy({ params }: HttpContext) {
+  async destroy({ params, response }: HttpContext) {
     const todo = await Todo.findOrFail(params.id)
     todo.delete()
   }
